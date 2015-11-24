@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+
+</head>
+<body ng-app="app" konami-code>
+    <section ng-controller="MyCtrl">
+
+      <script>
+var ngApp = angular.module('app', ['angular-konami']);
+
+ngApp.controller('MyCtrl', function ($scope) {
+    $scope.isKonamiEnable = false;
+
+    $scope.$on('konami-code-ok', function () {
+        $scope.isKonamiEnable = true;
+        $scope.$apply();
+    });
+});
+
+var ngKonami = angular.module('angular-konami', []);
+
+ngKonami.directive("konamiCode", function ($rootScope) {
+
+    return {
+        restrict: 'A',
+        link: function (scope, element, attrs) {
+
+            var konami_keys = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
+            var konami_index = 0;
+
+            var checkTheKonamiCode = function (event) {
+                if (event.which === konami_keys[konami_index++]) {
+                    if (konami_index === konami_keys.length) {
+                        $rootScope.$broadcast('konami-code-ok', event.target);
+                        element.off('keydown', checkTheKonamiCode);
+                    }
+                } else {
+                    konami_index = 0;
+                }
+            };
+
+            element.on('keydown', checkTheKonamiCode);
+        }
+    };
+});
+
+</script>
+      <span>konami active: {{ isKonamiEnable }}!</span>
+      
+      <p class="plzRememberMeThatCheatCode">
+        &uarr; &uarr; &darr; &darr; &larr; &rarr; &larr; &rarr; B A
+      </p>
+
+      <p ng-if="isKonamiEnable">
+        <a href="http://dikkebobby.deviantart.com/art/Unicorn-Run-Jump-Cycle-Adiian-309780102" title="watch dikkebobby unicorn">
+          <img src="http://fc06.deviantart.net/fs71/f/2012/173/d/d/unicorn_run_jump_cycle___adiian_by_dikkebobby-d54fnuu.gif" />
+        </a>
+      </p>
+    </section>
+
+
+</body>
+
+</html>
