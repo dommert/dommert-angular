@@ -1,0 +1,4 @@
+[
+  {"name": "James Bond", "age": 34, "isSpecial": false},
+  {"name": "Tony Stark", "age": 38, "isSpecial": true}
+]
