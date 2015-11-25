@@ -4,7 +4,7 @@
 <body>
 
 <div ng-app="myApp" ng-controller="myCtrl">
-
+<P>What ever you do, dont click the button!</P>
 <button ng-click="countClick()">Click Me!</button>
 
 <p>{{ count }}</p>
@@ -17,18 +17,24 @@ app.controller('myCtrl', function($scope) {
 
     $scope.countClick = function() { 
         $scope.count = $scope.count + 1; 
-    if($scope.count == 2)
+    
+    if($scope.count == 1)
     {
-        $scope.clickinfo = 'You are sure click happy...\n';
+        $scope.clickinfo = 'Why did you click the button?';
     }
-    else if($scope.count == 6)
+    else if($scope.count == 5)
     {
         $scope.clickinfo = 'Calm down before you hurt yourself...\n';
     }
     else if($scope.count == 10)
     {
+        $scope.clickinfo = 'You are sure click happy...\n';
+    }
+    else if($scope.count == 15)
+    {
         $scope.clickinfo = 'Dont you have something better to be doing?? \n';
     }
+    
     
     };
 });
