@@ -4,16 +4,39 @@
 <body>
 
 <div ng-app="myApp" ng-controller="myCtrl">
-
-<button ng-click="count = count + 1">Click Me!</button>
+<P>What ever you do, dont click the button!</P>
+<button ng-click="countClick()">Click Me!</button>
 
 <p>{{ count }}</p>
-
+<P>{{ clickinfo }}</P>
 </div>
 <script>
 var app = angular.module('myApp', []);
 app.controller('myCtrl', function($scope) {
     $scope.count = 0;
+
+    $scope.countClick = function() { 
+        $scope.count = $scope.count + 1; 
+    
+    if($scope.count == 1)
+    {
+        $scope.clickinfo = 'Why did you click the button?';
+    }
+    else if($scope.count == 25)
+    {
+        $scope.clickinfo = 'Calm down before you hurt yourself...\n';
+    }
+    else if($scope.count == 50)
+    {
+        $scope.clickinfo = 'You are sure click happy...\n';
+    }
+    else if($scope.count == 100)
+    {
+        $scope.clickinfo = 'Dont you have something better to be doing?? \n';
+    }
+    
+    
+    };
 });
 </script> 
 
