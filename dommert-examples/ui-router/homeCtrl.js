@@ -1,3 +1,4 @@
+// Home Controller
 angular
   .module('app')
   .controller('homeCtrl', ['$scope', 'Friends', function($scope, Friends) {
