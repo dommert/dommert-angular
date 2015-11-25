@@ -17,14 +17,15 @@ app.controller('myCtrl', function($scope) {
 
     $scope.countClick = function() { 
         $scope.count = $scope.count + 1; 
-    if($scope.count == 25)
+    if($scope.count == 2)
     {
         $scope.clickinfo = 'You are sure click happy...\n';
     }
-    elseif($scope.count == 60)
+    else if($scope.count == 6)
     {
         $scope.clickinfo = 'Calm down before you hurt yourself...\n';
     }
+    
     };
 });
 </script> 
