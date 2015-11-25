@@ -9,6 +9,7 @@ angular
     $scope.selectedValue = 'home';
 
     $scope.save = function() {
-      $http.post('/api/friends', friends);
+      //$http.post('/api/friends', friends);
+      alert(JSON.stringify($scope.friends));
     };
   }]);
