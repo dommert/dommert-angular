@@ -8,12 +8,16 @@
 <button ng-click="count = count + 1">Click Me!</button>
 
 <p>{{ count }}</p>
-
+<P>{{ clickinfo }}</P>
 </div>
 <script>
 var app = angular.module('myApp', []);
 app.controller('myCtrl', function($scope) {
     $scope.count = 0;
+    if($scope.count == 25)
+    {
+        $scope.clickinfo = 'You are sure click happy...\n';
+    }
 });
 </script> 
 
